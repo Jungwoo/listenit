@@ -1,0 +1,64 @@
+<div class="container">
+	<% flash.each do |name, msg| %>
+	  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+	    <a class="close" data-dismiss="alert">&#215;</a>
+	    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+	  </div>
+	<% end %>
+	<div class="page-header">
+		<h2><%= "["+@book.title.to_s+"]" %></h2>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<div class="span3" style="text-align:center;margin-top:60px;height:265px">
+					<%= image_tag @book.cover_l_url.to_s %>
+			</div>
+			<div class="span8">
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><i class="icon-info-sign"></i>
+						<a href="#description" data-toggle="tab"><h4>무슨 책인가요?</h4></a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="description" style="line-height:1.5em;height:180px">
+						<span style="color:#2f2f2f"><h5>지은이: <%=@book.author%></h5></span> 				
+						<span style="color:#2f2f2f"><h5>출판사: <%=@book.publisher%></h5></span>
+						<span style="color:#2f2f2f"><h5>카테고리: <%=@book.category%></h5></span><br/>
+						<span><%= @book.description %></span><br/><br/>
+						<p style="text-align:right">
+						<%= link_to "Daum에서 자세한 책 소개 보기>>", @book.src_url, {:class => 'link_to_daum'} %></p>
+						<p style="text-align:right">Added by <%= @book.user.email %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span11" style="text-align:right">
+			<%= link_to 'Edit', edit_book_path(@book) %> |
+			<%= link_to 'Back', books_path %>
+		</div>
+		<div class="span11" style="padding-left:1.4em;padding-top:1.4em;">
+			<span class="label label-important" style="font-size:1.0em">총 <%= @related_entities.count %>개의 관련 정보: </span><br/><br />
+			<div class="well-relation" style="padding-bottom:0px">
+				<div class="row-fluid">
+				<% @related_entities.each do |entity| %>	
+					<div class="span2" style="text-align:center;">
+						<%= link_to(image_tag(entity.cover_s_url.to_s), entity,{:class => 'relation_image'}) %><br/><br/>
+						<b><%= entity['title'] %></b><br/>
+						<%= entity.author %>
+						<br/><%= link_to "삭제", entity, :class => "btn btn-mini btn-danger"%>
+					</div>
+				<% end %>
+				</div>
+				<div class="row">
+					<div class="span10" style="text-align:right">
+				<%= form_tag(new_relation_path, :method => 'GET') do %>
+					<%= hidden_field_tag :book_id, @book.id %>
+					<% params[:notice] = @book.id %>
+					<%= submit_tag "새 관련정보 추가",  :class => 'btn btn-success'  %>
+				<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,55 @@
+# encoding: utf-8
+
+<div class="container">
+	<% flash.each do |name, msg| %>
+	  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+	    <a class="close" data-dismiss="alert">&#215;</a>
+	    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+	  </div>
+	<% end %>
+	<div class="page-header">
+		<h2>새로운 책 정보 입력</h2>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<% if @target == nil then %>
+			<h3>1단계: 검색하기</h3>
+			<% else %>
+			<h3>2단계: 선택한 책 정보 확인 후 추가</h3>
+			<% end %>
+			<br/>
+			<%= form_tag(search_path, :method => 'get', :class => 'form-search') do %>
+				<% if @target == nil then %>
+					<%= text_field_tag "keyword", nil, :placeholder=>"검색어 입력" %>
+				<% else %>
+					<%= text_field_tag "keyword", nil, :placeholder=>"다시 검색하기" %>
+				<% end %>
+				<%= hidden_field_tag :class, "book"%>
+				<%= submit_tag "검색", :class => 'btn btn-primary' %>
+			<% end %>
+		</div>
+		<div class="span6">
+			<% if @target == nil then %>
+
+			<% else %>
+				<%= form_tag(books_path, :method => 'POST') do %>
+					<%= label_tag "Title"%>
+					<%= strip_bold_tags @target['title'] %>
+					<%= image_tag @target['cover_s_url'] %>
+					<%= hidden_field_tag "book[title]", strip_bold_tags(@target['title']) %>
+					<%= hidden_field_tag "book[src_url]", @target['link']  %>
+					<%= hidden_field_tag "book[cover_s_url]", @target['cover_s_url'] %>
+					<%= hidden_field_tag "book[cover_l_url]", @target['cover_l_url'] %>
+					<%= hidden_field_tag "book[description]", strip_bold_tags(@target['description']) %>
+					<%= hidden_field_tag "book[author]", @target['author'] %>
+					<%= hidden_field_tag "book[publisher]", @target['pub_nm'] %>
+					<%= hidden_field_tag "book[category]", @target['category'] %>
+					<%= hidden_field_tag "book[isbn]", @target['isbn'] %>
+					<%= hidden_field_tag "book[status_des]", @target['status_des'].to_s %>
+					<%= submit_tag "Add this book" %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<%= link_to '메인으로 돌아가기', books_path, :class => "btn" %>
+</div>

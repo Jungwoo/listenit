@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  book_id: 1
+  related_entity_id: 1
+  comment: MyString
+
+two:
+  book_id: 1
+  related_entity_id: 1
+  comment: MyString

@@ -1,0 +1,62 @@
+# encoding: utf-8
+<div class="container">
+	<div class="row">
+		<div class="span9">
+			<div class="page-header">
+				<h3><%= current_user.email.to_s %> on record</h3>
+			</div>
+			<div class="tabbable tabs-left">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#1A" data-toggle="tab">내가 만든 정보</a>
+					</li>
+					<li>
+						<a href="#2A" data-toggle="tab">이런저런 통계</a>
+					</li>
+					<li>
+						<a href="#3A" data-toggle="tab">관심가는 것들</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="1A" style="padding-top:20px">
+						<div class="accordion" id="accrodion1">
+							<div class="accordion-group">
+								<div class="accordion-heading">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+										책 정보 목록
+									</a>
+								</div>
+								<div id="collapseOne" class="accordion-body collapse in">
+									<div class="accordion-inner">
+										Anim pariatur cliche...
+									</div>
+								</div>
+							</div>
+							<div class="accordion-group">
+								<div class="accordion-heading">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
+										책 관련 정보 목록
+									</a>
+								</div>
+								<div id="collapseTwo" class="accordion-body collapse in">
+									<div class="accordion-inner">
+										Anim pariatur cliche...
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="2A" style="padding-top:20px"><p>I'm in Section 2<p></div>
+					<div class="tab-pane" id="3A" style="padding-top:20px"><p>I'm in Section 3<p></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+$('#accordion1').collapse({
+	toggle: false
+})
+$('.collapse').collapse()
+</script>

@@ -1,0 +1,38 @@
+# encoding: utf-8
+<div class="container">
+	<% flash.each do |name, msg| %>
+	  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+	    <a class="close" data-dismiss="alert">&#215;</a>
+	    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+	  </div>
+	<% end %>
+	<div class="page-header">
+		<h2>등록된 관계정보 리스트</h2>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<table class="table table-striped">
+			  <tr>
+			    <th>책 ID</th>
+			    <th>관련정보(책, 음악, ..) ID</th>
+			    <th>코멘트</th>
+			    <th></th>
+			    <th></th>
+			    <th></th>
+			  </tr>
+				<%= @relation %>
+				<% @relations.each do |relation| %>
+				  <tr>
+				    <td><%= relation.book_id %></td>
+				    <td><%= relation.related_entity_id %></td>
+				    <td><%= relation.comment %></td>
+				    <td><%= link_to 'Show', relation, :class => "btn btn-primary" %></td>
+				    <td><%= link_to 'Edit', edit_relation_path(relation), :class => "btn btn-warning" %></td>
+				    <td><%= link_to 'Destroy', relation, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %></td>
+				  </tr>
+				<% end %>
+			</table>			
+			<%= link_to '새로운 관련정보 등록', new_relation_path, :class => "btn btn-primary" %>
+		</div>
+	</div>
+</div>

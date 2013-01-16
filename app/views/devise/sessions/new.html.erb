@@ -1,0 +1,30 @@
+<div class="container">
+	<% flash.each do |name, msg| %>
+	  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+	    <a class="close" data-dismiss="alert">&#215;</a>
+	    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+	  </div>
+	<% end %>
+	<div class="row">
+		<div class="page-header">
+			<h2>로그인하기</h2>
+		</div>
+		<div class="span8">
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			  <div><%= f.label :email %><br />
+			  <%= f.email_field :email %></div>
+
+			  <div><%= f.label :password %><br />
+			  <%= f.password_field :password %></div>
+
+			  <% if devise_mapping.rememberable? -%>
+			    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+			  <% end -%>
+
+			  <div><%= f.submit "Sign in" %></div>
+			<% end %>
+
+			<%= render "links" %>
+		</div>
+	</div>
+</div>

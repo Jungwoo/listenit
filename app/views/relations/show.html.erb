@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Book_id:</b>
+  <%= @relation.book_id %>
+</p>
+
+<p>
+  <b>Related_entity_id:</b>
+  <%= @relation.related_entity_id %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @relation.comment %>
+</p>
+
+<%= link_to 'Edit', edit_relation_path(@relation) %> |
+<%= link_to 'Back', relations_path %>
