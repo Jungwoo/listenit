@@ -1,0 +1,14 @@
+<svg xmlns:x="http://ns.adobe.com/Extensibility/1.0/" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns:graph="http://ns.adobe.com/Graphs/1.0/" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="50px" height="25px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+<metadata>
+	<sfw xmlns="http://ns.adobe.com/SaveForWeb/1.0/">
+		<slices/>
+		<sliceSourceBounds x="0.083" y="-99.397" width="99.612" height="99.046" bottomLeftOrigin="true"/>
+	</sfw>
+</metadata>
+<path fill="#000000" d="M64.431,21.847c0,11.873-9.624,30.207-21.496,30.207c-11.872,0-21.497-18.334-21.497-30.207  c0-11.872,9.625-21.496,21.497-21.496C54.807,0.351,64.431,9.975,64.431,21.847z"/>
+<g>
+	<rect x="84.732" y="17.913" fill="#000000" width="7.165" height="22.761"/>
+	<rect x="76.936" y="25.711" fill="#000000" width="22.76" height="7.166"/>
+</g>
+<path fill="#000000" d="M77.355,49.791c0,0-9.501-2.225-21.004-3.442c-3.75,4.552-8.392,7.684-13.417,7.684  c-5.026,0-9.667-3.132-13.419-7.684c-11.502,1.217-21.003,3.442-21.003,3.442c-4.655,0-8.43,3.774-8.43,8.43v32.747  c0,4.656,3.775,8.43,8.43,8.43h68.843c4.654,0,8.43-3.773,8.43-8.43V58.221C85.785,53.565,82.01,49.791,77.355,49.791z"/>
+</svg>

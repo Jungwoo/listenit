@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bookle: Connected Books</title>
+  <title>Listen your Books</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "bootstrap" %>
   <%= csrf_meta_tags %>
+	<%= favicon_link_tag 'favicon.svg' %>
 </head>
 <body>
 	<div class="navbar">
@@ -15,24 +17,26 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-	      <a class="brand" href="/">Bookle</a>
+	      <a class="brand" href="/"><%= image_tag 'headphone.svg', style: "height: 25px;" %>&nbsp;&nbsp;<b>Listen-It</b></a>
 	      <div class="nav-collapse">
 	        <ul class="nav">
            	<li class="dropdown active">
-             	<a href="#" class="dropdown-toggle" data-toggle="dropdown">메뉴 <b class="caret"></b></a>
+             	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag 'menu.svg', style: "height: 20px;" %></a>
              	<ul class="dropdown-menu">
+								<li class="divider"></li>
+               	<li class="nav-header">BOOK</li>
 								<li><a href="/books">전체 책 목록 보기</a></li>
-              	<li><a href="#">최근 업데이트된 책 정보</a></li>
-               	<li><a href="#">많이 인용된 책 정보</a></li>
+              	<li><a href="#">최근 업데이트된 책들</a></li>
+              	<li><a href="#">인기많은 책들</a></li>
                	<li class="divider"></li>
-               	<li class="nav-header">패스파인더</li>
-               	<li><a href="#">가장 많은 정보를 입력한 사람</a></li>
-               	<li><a href="#">인기많은 정보를 입력한 사람</a></li>
+               	<li class="nav-header">MUSIC</li>
+               	<li><a href="#">최근 업데이트된 음악들</a></li>
+               	<li><a href="#">인기많은 음악들</a></li>
              	</ul>
            	</li>
          	</ul>
          	<form class="navbar-search pull-left" action="">
-           	<input type="text" class="search-query span2" placeholder="책 정보 검색">
+           	<input type="text" class="search-query span2" placeholder="책 이름 검색">
          	</form>
          	<ul class="nav pull-right">
 						<% if user_signed_in? %>

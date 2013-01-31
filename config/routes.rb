@@ -1,4 +1,6 @@
 Bookmap::Application.routes.draw do
+  resources :musics
+
   get "home/index"
   root :to => "home#index"
   
