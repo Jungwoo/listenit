@@ -79032,3 +79032,414 @@ Served asset /email.svg - 304 Not Modified (0ms)
 
 Started GET "/assets/favicon.svg" for 127.0.0.1 at 2013-01-31 17:11:21 +0900
 Served asset /favicon.svg - 304 Not Modified (0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z9A4QAB2gwflzzoxP1D3E8TeFywqbkveHcNJlt44Ckg=", "user"=>{"email"=>"travis0722@naver.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"회원가입"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'travis0722@naver.com' LIMIT 1[0m
+Completed 401 Unauthorized in 14ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z9A4QAB2gwflzzoxP1D3E8TeFywqbkveHcNJlt44Ckg=", "user"=>{"email"=>"travis0722@naver.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"회원가입"}
+  Rendered devise/_links.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 111ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /bootstrap.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/musics.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /musics.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/relations.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /relations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /books.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jqBootstrapValidation.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /jqBootstrapValidation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/musics.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /musics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/relations.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /relations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/menu.svg" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /menu.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/headphone.svg" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /headphone.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.svg" for 127.0.0.1 at 2013-01-31 17:27:41 +0900
+Served asset /favicon.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.svg" for 127.0.0.1 at 2013-01-31 17:27:49 +0900
+Served asset /favicon.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /home.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /books.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/musics.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /musics.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/relations.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /relations.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jqBootstrapValidation.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /jqBootstrapValidation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/musics.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /musics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/relations.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /relations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/headphone.svg" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /headphone.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menu.svg" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /menu.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.svg" for 127.0.0.1 at 2013-01-31 17:27:50 +0900
+Served asset /favicon.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.svg" for 127.0.0.1 at 2013-01-31 17:27:55 +0900
+Served asset /favicon.svg - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /books.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /bootstrap-responsive.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/musics.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /musics.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/relations.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /relations.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/relations.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /relations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/musics.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /musics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jqBootstrapValidation.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /jqBootstrapValidation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/headphone.svg" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /headphone.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password.svg" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /password.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menu.svg" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /menu.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/email.svg" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /email.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/register.svg" for 127.0.0.1 at 2013-01-31 17:30:29 +0900
+Served asset /register.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.svg" for 127.0.0.1 at 2013-01-31 17:30:32 +0900
+Served asset /favicon.svg - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z9A4QAB2gwflzzoxP1D3E8TeFywqbkveHcNJlt44Ckg=", "user"=>{"email"=>"travis0722@naver.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"회원가입"}
+  [1m[35m (2.7ms)[0m  BEGIN
+  [1m[36mUser Exists (7.5ms)[0m  [1mSELECT 1 FROM `users` WHERE `users`.`email` = BINARY 'travis0722@naver.com' LIMIT 1[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO `users` (`created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `last_sign_in_at`, `last_sign_in_ip`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `updated_at`, `username`) VALUES ('2013-01-31 08:30:39', NULL, NULL, 'travis0722@naver.com', '$2a$10$ZZ3t0ek96UiZhCs7omucj.nPWtUTTiWO8JR826s5KX2YI4.1qMiZy', NULL, NULL, NULL, NULL, NULL, 0, '2013-01-31 08:30:39', NULL)
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-31 08:30:39', `current_sign_in_at` = '2013-01-31 08:30:39', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-31 08:30:39' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 177ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/musics.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /musics.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /books.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /bootstrap-responsive.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/relations.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /relations.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/books.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /books.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/musics.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /musics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jqBootstrapValidation.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /jqBootstrapValidation.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/relations.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /relations.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/menu.svg" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /menu.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/headphone.svg" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /headphone.svg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/favicon.svg" for 127.0.0.1 at 2013-01-31 17:30:39 +0900
+Served asset /favicon.svg - 304 Not Modified (0ms)
