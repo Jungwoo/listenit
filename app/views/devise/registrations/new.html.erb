@@ -23,7 +23,7 @@
 				  <div class="controls">
 				    <div class="input-prepend">
 				      <span class="add-on"><%= image_tag "email.svg" %></span>
-				      <input class="span2" id="user_email" name="user[email]" type="email" size="35" required />
+				      <input class="span2" id="user_email" name="user[email]" type="text" size="35" />
 				    </div>
 				  </div>
 				</div>
@@ -43,12 +43,12 @@
 				  <div class="controls">
 				    <div class="input-prepend">
 				      <span class="add-on"><%= image_tag "password.svg" %></span>
-				      <input class="span2" id="user_password_confirmation" name="user[password_confirmation]" type="password" data-validation-match-match="user[password]" >
+				      <input class="span2" id="user_password_confirmation" name="user[password_confirmation]" type="password" >
 				    </div>
 				  </div>
 				</div>
 				<br>
-			  <div><%= submit_tag "회원가입",  :class => 'btn btn-success'  %></div>
+			  <div><%= submit_tag "회원 가입",  :class => 'btn btn-success'  %></div>
 			<% end %>
 		</div>
 		<div class="span6">
