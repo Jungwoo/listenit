@@ -60,6 +60,7 @@
 					<%= hidden_field_tag "book[category]", @target['category'] %>
 					<%= hidden_field_tag "book[isbn]", @target['isbn'] %>
 					<%= hidden_field_tag "book[status_des]", @target['status_des'].to_s %>
+					<%= hidden_field_tag "book[user_id]", current_user.id.to_s %>
 						</div>
 						<div style='clear:left;padding-top:20px;padding-bottom:15px;height:0px;text-align:right;'><%= submit_tag "이 책을 목록에 추가", :class => 'btn btn-primary' %></div>
 					</div>
