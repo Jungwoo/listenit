@@ -11,7 +11,8 @@ Bookmap::Application.routes.draw do
   
   match 'users/feed' => 'users#feed'
   
-  match 'search' => 'books#search'
+  match 'book_search' => 'books#search'
+  match 'music_search' => 'relations#search'
   
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
   

@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class RelationsController < ApplicationController
   
   before_filter :authenticate_user!, except: [:index, :show]
@@ -113,4 +115,15 @@ class RelationsController < ApplicationController
     end
   end
   
+  # Search the music by keyword from Youtube
+  def search
+    keyword = params[:keyword]
+    @class = params[:class]
+    @book_id = params[:book_id]
+    #if keyword.to_s.length == 0 then
+    #  redirect_to new_book_path, :notice => "Please input keyword"
+    #end
+    result = JSON.parse(open(URI.encode("https://gdata.youtube.com/feeds/api/videos?category=Music&q=#{keyword}&key=AI39si5g25khnVDxoMQfiuVr3Og2p7XffY3UMgnxXpn9AHfC4Nsk4evMcKS6u7CN7PQXg4x0mZZr_Wk08oono9Pqv7gfeNts_w&alt=json&v=2")).read)
+    @search_result = result
+  end
 end

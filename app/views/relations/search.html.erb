@@ -1,0 +1,42 @@
+# encoding: utf-8
+<div class="container">
+	<% flash.each do |name, msg| %>
+	  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+	    <a class="close" data-dismiss="alert">&#215;</a>
+	    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+	  </div>
+	<% end %>
+	<div class="page-header">
+		<h2>&nbsp;<%= image_tag 'music.svg', style: "height: 20px;margin-right:10px" %>새로운 관련음악 추가</h2>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<h3><%= image_tag 'search_result.svg'%>2단계: 검색 결과에서 음악 선택하기</h3><br/>
+		</div>
+		<div class="span12">
+			<table class="table table-hover table-valign">
+			  <tr>
+			    <th>섬네일</th>
+			    <th>타이틀</th>
+					<th>카테고리</th>
+					<th>재생시간</th>
+			    <th></th>
+			  </tr>
+			
+			<% @search_result['feed']['entry'].each do |music| %>
+			  <tr>
+					<td style="width:140px"><%= image_tag 'http://img.youtube.com/vi/'+music['id']['$t'].split(":")[3]+'/1.jpg', style: "height: 90px;width:120px" %></td>
+					<td style="max-width:200px;"><%= music['title']['$t'] %></td>
+					<td><%= music['category'][1]['label'] %></td>
+					<% duration = music['media$group']['media$content'][0]['duration'] %>
+					<td><%= (duration / 60).to_s %>분&nbsp;<%= (duration % 60).to_s %>초</td>
+			    <td>
+							<%= link_to '선택', new_relation_path(:target => music, :book_id => @book_id), :class=>"btn btn-primary" %>
+					</td>
+			  </tr>
+			<% end %>
+			</table>
+			<%= link_to '이전화면으로 돌아가기', :back, :class=>"btn" %>
+		</div>
+	</div>
+</div>

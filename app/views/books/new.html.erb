@@ -18,7 +18,7 @@
 			<h3>&nbsp;<%= image_tag 'add_book.svg'%>3단계: 추가 정보 입력 및 저장</h3>
 			<% end %>
 			<br/>
-			<%= form_tag(search_path, :method => 'get', :class => 'form-search') do %>
+			<%= form_tag(book_search_path, :method => 'get', :class => 'form-search') do %>
 				<% if @target == nil then %>
 					&nbsp;&nbsp;<%= text_field_tag "keyword", nil, :placeholder=>"검색어 입력" %>
 				<% else %>
