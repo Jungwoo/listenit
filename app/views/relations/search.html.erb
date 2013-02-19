@@ -25,7 +25,8 @@
 			
 			<% @search_result['feed']['entry'].each do |music| %>
 			  <tr>
-					<td style="width:140px"><%= image_tag 'http://img.youtube.com/vi/'+music['id']['$t'].split(":")[3]+'/1.jpg', style: "height: 90px;width:120px" %></td>
+					<% video_id = music['id']['$t'].split(":")[3] %>
+					<td style="width:140px"><%= link_to image_tag( "http://img.youtube.com/vi/#{video_id}/1.jpg", style: "height:90px;width:120px"), "http://www.youtube.com/watch?v=#{video_id}" %></td>
 					<td style="max-width:200px;"><%= music['title']['$t'] %></td>
 					<td><%= music['category'][1]['label'] %></td>
 					<% duration = music['media$group']['media$content'][0]['duration'] %>
