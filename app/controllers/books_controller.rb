@@ -25,7 +25,7 @@ class BooksController < ApplicationController
     
     # Must optimize the code below !!!
     @relations.each do | relation |
-      @related_entities.push(Book.find(:last, :conditions => ["id = ?", relation.related_entity_id]))
+      @related_entities.push(Music.find(:last, :conditions => ["id = ?", relation.related_entity_id]))
     end
 
     respond_to do |format|
@@ -98,13 +98,20 @@ class BooksController < ApplicationController
   
   # Search the book by keyword from Daum Books
   def search
-    keyword = params[:keyword]
+    @keyword = params[:keyword]
     @class = params[:class]
     @book_id = params[:book_id]
+    @page_no = params[:page_no]
+    if @page_no.to_s.length == 0 then
+      @page_no = 1
+    else
+      @page_no = Integer(@page_no)
+    end
+    @itemsPerPage = 10
     #if keyword.to_s.length == 0 then
     #  redirect_to new_book_path, :notice => "Please input keyword"
     #end
-    result = JSON.parse(open(URI.encode("http://apis.daum.net/search/book?q=#{keyword}&sort=accu&output=json&searchType=title&apikey=a720f3b1c148fd3a6bd1c81d0787e84c4e9e8d5b")).read)
+    result = JSON.parse(open(URI.encode("http://apis.daum.net/search/book?q=#{@keyword}&sort=accu&output=json&searchType=title&apikey=a720f3b1c148fd3a6bd1c81d0787e84c4e9e8d5b&pageno=#{@page_no}&result=#{@itemsPerPage}&sort=accu")).read)
     @search_result = result
   end
 

@@ -14,25 +14,24 @@
 			<div class="span12">
 				<ul class="thumbnails">
 					<% @books.each do |book| %>
-					<li class="span3">
-						<div class="thumbnail" style="padding:15px">
-							<%= image_tag book.cover_l_url.to_s, style: "height: 160px;" %>
-							<div class="caption" style="text-align:center">
-								<h4><%= book.title %></h4>
-							</div>
-							<div class="detail" style='text-align:right'>
-								<br/>
-								<p>
-									<%= link_to '관련정보 '+book.relations.count.to_s+'개', book, :class => ' btn-relation'%>
+					<li class="span4" style="margin-bottom:1em;float:left;display:block;">
+						<div class="media" style="background-color:#F8F8F8;border:1px solid #EEEEEE; padding: 0.5em;">
+							<%= link_to(image_tag(book.cover_s_url.to_s, :style => "display:inline-block;"), book, :style => "float:left;margin-right:10px;") %>
+							<div class="media-body" style='overflow:hidden;zoom:1;display:block'>
+								<h5 class="media-heading" style="font-size:14px;margin:0 0 5px">
+									<%= link_to book.title, book, :style => "text-decoration:none" %>
+								</h5>
+								<p style="font-size:0.75em;color:#999999;margin:0 0 15px"><%= book.author %>, <%= book.publisher %></p>
+								<p style="display:block;margin-right:10px;text-align:right;">
+									<%= link_to (image_tag("music_small.svg")+' '+book.relations.count.to_s), book, :class => ' btn-relation'%>
 									<% if user_signed_in? then %>
 										<% if current_user.email.to_s.eql?("travis0722@naver.com")%>
-											<br/><br/>
-											<%= link_to '수정', edit_book_path(book), :class => 'btn btn-warning' %>
-											<%= link_to '삭제', book, :class => 'btn btn-danger', method: :delete, confirm: 'Are you sure?' %>
+											
 										<% end %>
 									<% end %>
 									<p/>
 							</div>
+							<div style="clear:both"></div>
 						</div>
 					</li>
 					<% end %>

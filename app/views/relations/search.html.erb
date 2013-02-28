@@ -16,7 +16,7 @@
 		<div class="span12">
 			<table class="table table-hover table-valign">
 			  <tr>
-			    <th>섬네일</th>
+			    <th></th>
 			    <th>타이틀</th>
 					<th>카테고리</th>
 					<th>재생시간</th>
@@ -26,17 +26,37 @@
 			<% @search_result['feed']['entry'].each do |music| %>
 			  <tr>
 					<% video_id = music['id']['$t'].split(":")[3] %>
+					<% target_music = Hash.new %>
+					<% target_music['title'] = music['title']['$t'] %>
+					<% target_music['video_id'] = video_id %>
+					<% target_music['url'] = "http://www.youtube.com/watch?v=#{video_id}" %>
 					<td style="width:140px"><%= link_to image_tag( "http://img.youtube.com/vi/#{video_id}/1.jpg", style: "height:90px;width:120px"), "http://www.youtube.com/watch?v=#{video_id}" %></td>
 					<td style="max-width:200px;"><%= music['title']['$t'] %></td>
 					<td><%= music['category'][1]['label'] %></td>
 					<% duration = music['media$group']['media$content'][0]['duration'] %>
 					<td><%= (duration / 60).to_s %>분&nbsp;<%= (duration % 60).to_s %>초</td>
+					<% target_music['duration'] = duration %>
 			    <td>
-							<%= link_to '선택', new_relation_path(:target => music, :book_id => @book_id), :class=>"btn btn-primary" %>
+							<%= link_to '선택', new_relation_path(:target => target_music, :book_id => @book_id), :class=>"btn btn-primary" %>
 					</td>
 			  </tr>
 			<% end %>
 			</table>
+		  <ul class="pager">
+				<% totalResults = @search_result['feed']['openSearch$totalResults']['$t']%>
+				<% current_index = @search_result['feed']['openSearch$startIndex']['$t']%>
+				<% itemsPerPage = @search_result['feed']['openSearch$itemsPerPage']['$t']%>
+				<% if current_index <= 1 then %>
+				<li class="disabled"><%= link_to "이전", music_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :start_index => current_index-itemsPerPage ) %></li>
+				<% else %>
+				<li><%= link_to "이전", music_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :start_index => current_index-itemsPerPage ) %></li>
+				<% end %>
+				<% if totalResults - current_index < itemsPerPage then %>
+				<li class="disabled"><%= link_to "다음", music_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :start_index => current_index+itemsPerPage ) %></li>
+				<% else %>
+				<li><%= link_to "다음", music_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :start_index => current_index+itemsPerPage ) %></li>
+				<% end %>
+		  </ul>
 			<%= link_to '이전화면으로 돌아가기', :back, :class=>"btn" %>
 		</div>
 	</div>

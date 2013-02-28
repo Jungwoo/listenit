@@ -34,15 +34,15 @@
 			<%= link_to 'Back', books_path %>
 		</div>
 		<div class="span11" style="padding-left:1.4em;padding-top:1.4em;">
-			<span class="label label-important" style="font-size:1.0em">총 <%= @related_entities.count %>개의 관련 음악: </span><br/><br />
+			<br/><br/>
 			<div class="well-relation" style="padding-bottom:0px">
 				<div class="row-fluid">
-				<% @related_entities.each do |entity| %>	
+				<% @related_entities.each do |music| %>	
 					<div class="span2" style="text-align:center;">
-						<%= link_to(image_tag(entity.cover_s_url.to_s), entity,{:class => 'relation_image'}) %><br/><br/>
-						<b><%= entity['title'] %></b><br/>
-						<%= entity.author %>
-						<br/><%= link_to "삭제", entity, :class => "btn btn-mini btn-danger"%>
+						<%= link_to(image_tag( "http://img.youtube.com/vi/#{music.video_id}/1.jpg", style: "height:90px;width:120px"), music) %><br/><br/>
+						<b><%= music.title %></b><br/>
+						<%= music.duration.strftime("%M:%S") %>
+						<br/><%= link_to "삭제", music, :class => "btn btn-mini btn-danger"%>
 					</div>
 				<% end %>
 				</div>

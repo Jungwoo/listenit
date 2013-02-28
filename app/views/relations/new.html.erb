@@ -2,24 +2,20 @@
 
 <div class="container">
 	<div class="page-header">
-		<h2>새로운 관련 정보 입력</h2>
+		<h2>&nbsp;<%= image_tag 'music.svg', :style=>'height:25px'%>&nbsp;새로운 관련음악 입력</h2>
 	</div>
 	<div class="row">
 		<div class="span12">
 			<% if @target == nil then %>
-			<ul class="breadcrumb">
-				<li class="active"><h4>1단계: 검색하기</h4></li>
-			</ul>
+			<h3>&nbsp;<%= image_tag 'search.svg'%>1단계: 검색하기</h3>
 			<br/>
 			<% else %>
-			<ul class="breadcrumb">
-				<li class="active"><h4>3단계: 코멘트 작성 및 저장</h4></li>
-			</ul>
+			<h3>&nbsp;<%= image_tag 'add_book.svg'%>3단계: 코멘트 작성 및 저장</h3>
 			<br/>
 			<% end %>
 			<% if @target == nil then %>
 				<%= form_tag(music_search_path, :method => 'get', :class => 'form-search') do %>
-					<%= text_field_tag "keyword", nil, :placeholder=>"검색어 입력" %>
+					&nbsp;&nbsp;<%= text_field_tag "keyword", nil, :placeholder=>"검색어 입력" %>
 					<%= hidden_field_tag :class, "relation"%>
 					<%= hidden_field_tag :book_id, @book_id %>
 					<%= submit_tag "검색", :class => 'btn btn-primary' %>
@@ -27,50 +23,42 @@
 			<% end %>
 		</div>
 		<div class="span6">
-			<div class="well">
 				<% if @target == nil then %>
-				  <%=  %>
+
 				<% else %>
-					<% if @book_already_exists then %>
-						<%= form_tag(relations_path, :method => 'POST') do %>
-							<%= label_tag "Title"%>
-							<%= strip_bold_tags @target['title'] %>
-							<%= image_tag @target['cover_s_url'] %>
-							<%= hidden_field_tag "relation[book_id]", @book_id %>
-							<%= hidden_field_tag "relation[related_entity_id]", @book_already_id %>
-							<%= label_tag "Comment:" %>
-							<%= text_field_tag "relation[comment]", "", :placeholder => "comment"%>
-							<%= submit_tag "Add this book" %>		
-						<% end %>
-					<% else %>
-						<%= form_tag(relations_path, :method => 'POST') do %>
-							<%= label_tag "Title"%>
-							<%= strip_bold_tags @target['title'] %>
-							<%= image_tag @target['cover_s_url'] %>
-							<%= hidden_field_tag "book[title]", strip_bold_tags(@target['title']) %>
-							<%= hidden_field_tag "book[src_url]", @target['link']  %>
-							<%= hidden_field_tag "book[cover_s_url]", @target['cover_s_url'] %>
-							<%= hidden_field_tag "book[cover_l_url]", @target['cover_l_url'] %>
-							<%= hidden_field_tag "book[description]", strip_bold_tags(@target['description']) %>
-							<%= hidden_field_tag "book[author]", @target['author'] %>
-							<%= hidden_field_tag "book[publisher]", @target['pub_nm'] %>
-							<%= hidden_field_tag "book[category]", @target['category'] %>
-							<%= hidden_field_tag "book[isbn]", @target['isbn'] %>
-							<%= hidden_field_tag "book[status_des]", @target['status_des'].to_s %>
-							<%= hidden_field_tag "relation[book_id]", @book_id %>
-							<%= label_tag "Comment:" %>
-							<%= text_field_tag "relation[comment]", "", :placeholder =>"comment"%>			
-							<%= submit_tag "Add this book" %>
-						<% end %>	
-					<% end %>
+					<% video_id = @target['video_id'] %>
+					<div class="well" style="margin-left:30px;">
+							<div>
+								<%= form_tag(relations_path, :method => 'POST') do %>
+									<div style="float:left;margin-right:20px;height:125px;line-height:125px"><%= image_tag "http://img.youtube.com/vi/#{video_id}/1.jpg", style: "height:90px;width:120px" %></div>
+									<div style="padding-left:10px">
+										<b>
+										  <%= label_tag "타이틀"%>
+										  <%= text_field_tag "music[title]", @target['title'] %>
+										</b><br>
+										<p style="font-size:10px;margin-top:5px">어떤 음악인가요?</p>
+										<div class="btn-group" data-toggle="buttons-radio">
+										<%= hidden_field_tag "music[video_id]", video_id %>
+										<%= hidden_field_tag "music[url]", "http://www.youtube.com/watch?v=#{video_id}" %>
+										<% duration = @target['duration'] %>
+										<%= hidden_field_tag "music[duration]", duration %>
+										<%= hidden_field_tag "relation[book_id]", @book_id %>
+									</div>
+									<br>
+								<%= label_tag "부연 설명" %>
+								<%= text_area_tag "relation[comment]", "", :style => "width:380px;height:55px;" %>
+								<div style='clear:left;padding-top:20px;padding-bottom:15px;height:0px;text-align:right;'><%= submit_tag "이 음악을 관련 음악으로 추가", :class => 'btn btn-primary' %></div>
+								<% end %>
+							</div>
+					</div>
+			  <% end %>
+				<% if @target == nil then %>
+					&nbsp;&nbsp;<%= link_to '책 정보화면으로 돌아가기', "/books/"+@book_id.to_s, :class => "btn" %>
+				<% else %>
+					&nbsp;&nbsp;<%= link_to '검색결과로 돌아가기', :back, :class => "btn" %>
 				<% end %>
-			</div>
+				</div>
 		</div>
 	</div>
-	<% if @target == nil then %>
-		<%= link_to '책 정보화면으로 돌아가기', "/books/"+@book_id.to_s, :class => "btn" %>
-	<% else %>
-		<%= link_to '검색결과로 돌아가기', :back, :class => "btn" %>
-	<% end %>
 </div>
 
