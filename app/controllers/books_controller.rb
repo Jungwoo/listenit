@@ -22,10 +22,11 @@ class BooksController < ApplicationController
     @relations = Relation.find(:all, :conditions => ["book_id = ?", params[:id]])
     @relation_count = @relations.count
     @related_entities = Array.new
+    @related_comments = Array.new
     
     # Must optimize the code below !!!
     @relations.each do | relation |
-      @related_entities.push(Music.find(:last, :conditions => ["id = ?", relation.related_entity_id]))
+      @related_entities.push([relation.comment, Music.find(:last, :conditions => ["id = ?", relation.related_entity_id])])
     end
 
     respond_to do |format|

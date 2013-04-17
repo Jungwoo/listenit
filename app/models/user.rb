@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :books
   has_many :relations
+  has_many :musics
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

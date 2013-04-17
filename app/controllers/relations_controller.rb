@@ -74,8 +74,9 @@ class RelationsController < ApplicationController
 
       respond_to do |format|
         if @relation.save
-          format.html { redirect_to @relation, notice: 'Relation is successfully created.' }
-          format.json { render json: @relation, status: :created, location: @relation }
+          format.html { redirect_to @relation.book, notice: '관련음악이 성공적으로 추가되었습니다.' }
+          format.json { render json: @relation.book, status: :created, location: @relation }
+
         else
           format.html { render action: "new" }
           format.json { render json: @relation.errors, status: :unprocessable_entity }

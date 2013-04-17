@@ -41,7 +41,7 @@
 										<%= hidden_field_tag "music[video_id]", video_id %>
 										<%= hidden_field_tag "music[url]", "http://www.youtube.com/watch?v=#{video_id}" %>
 										<% duration = @target['duration'] %>
-										<%= hidden_field_tag "music[duration]", duration %>
+										<%= hidden_field_tag "music[duration]", DateTime.strptime(duration, '%s') %>
 										<%= hidden_field_tag "relation[book_id]", @book_id %>
 									</div>
 									<br>

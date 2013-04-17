@@ -34,18 +34,26 @@
 			<%= link_to 'Back', books_path %>
 		</div>
 		<div class="span11" style="padding-left:1.4em;padding-top:1.4em;">
-			<br/><br/>
+			<span class="label label-info" style="font-size:1.0em">총 <%= @related_entities.count %>개의 관련 음악: </span><br/><br />
 			<div class="well-relation" style="padding-bottom:0px">
-				<div class="row-fluid">
-				<% @related_entities.each do |music| %>	
-					<div class="span2" style="text-align:center;">
-						<%= link_to(image_tag( "http://img.youtube.com/vi/#{music.video_id}/1.jpg", style: "height:90px;width:120px"), music) %><br/><br/>
-						<b><%= music.title %></b><br/>
-						<%= music.duration.strftime("%M:%S") %>
-						<br/><%= link_to "삭제", music, :class => "btn btn-mini btn-danger"%>
-					</div>
-				<% end %>
-				</div>
+				<table class="table table-hover table-valign">
+				  <tr>
+				    <th></th>
+				    <th><b>제목</b></th>
+						<th><b>재생시간</b></th>
+				    <th><b>부연설명</b></th>
+				    <th></th>
+				  </tr>
+					<% @related_entities.each do |music| %>
+					<tr>
+						<td style="width:140px"><%= "<iframe style='width:160px;height:120px' src='https://www.youtube.com/embed/#{music[1].video_id}?frameborder='0'></iframe>".html_safe %></td>
+						<td style="width:200px;"><%= music[1].title %></td>
+						<td style="width:70px;text-align:center"><%= music[1].duration.strftime("%M:%S") %></td>
+						<td><%= music[0] %></td>
+						<td style="width:100px"><%= link_to "유튜브에서 보기", 'https://www.youtube.com/watch?v='+music[1].video_id, :class => "btn btn-info"%></td>
+					</tr>
+					<% end %>
+				</table>
 				<div class="row">
 					<div class="span10" style="text-align:right">
 				<%= form_tag(new_relation_path, :method => 'GET') do %>
