@@ -42,15 +42,15 @@
 				    <th><b>제목</b></th>
 						<th><b>재생시간</b></th>
 				    <th><b>부연설명</b></th>
-				    <th></th>
+				    <!--th></th-->
 				  </tr>
 					<% @related_entities.each do |music| %>
 					<tr>
-						<td style="width:140px"><%= "<iframe style='width:160px;height:120px' src='https://www.youtube.com/embed/#{music[1].video_id}?frameborder='0'></iframe>".html_safe %></td>
+						<td style="width:250px"><%= "<iframe style='width:250px;height:200px' src='https://www.youtube.com/embed/#{music[1].video_id}?frameborder='0'></iframe>".html_safe %></td>
 						<td style="width:200px;"><%= music[1].title %></td>
 						<td style="width:70px;text-align:center"><%= music[1].duration.strftime("%M:%S") %></td>
 						<td><%= music[0] %></td>
-						<td style="width:100px"><%= link_to "유튜브에서 보기", 'https://www.youtube.com/watch?v='+music[1].video_id, :class => "btn btn-info"%></td>
+						<!--td style="width:50px"><%= link_to "유튜브에서 보기", 'https://www.youtube.com/watch?v='+music[1].video_id, :class => "btn btn-info"%></td-->
 					</tr>
 					<% end %>
 				</table>
