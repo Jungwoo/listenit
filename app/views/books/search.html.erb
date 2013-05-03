@@ -26,7 +26,7 @@
 
 			<% @search_result['channel']['item'].each do |book| %>
 			  <tr>
-					<td><%= image_tag book['cover_s_url'] %></td>
+					<td><%= safe_image_tag(book['cover_s_url']) %></td>
 			    <td style="max-width:200px;"><%= strip_bold_tags(book['title']) %></td>
 					<td><%= book['category'] %></td>
 			    <td><%= strip_bold_tags(book['author']) %></td>
