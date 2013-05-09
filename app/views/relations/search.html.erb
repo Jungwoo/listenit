@@ -31,7 +31,7 @@
 					<% target_music['title'] = music['title']['$t'] %>
 					<% target_music['video_id'] = video_id %>
 					<% target_music['url'] = "http://www.youtube.com/watch?v=#{video_id}" %>
-					<td style="width:140px"><%= link_to image_tag( "http://img.youtube.com/vi/#{video_id}/1.jpg", style: "height:90px;width:120px"), "http://www.youtube.com/watch?v=#{video_id}" %></td>
+					<td style="width:140px"><%= link_to image_tag( "http://img.youtube.com/vi/#{video_id}/1.jpg", style: "height:90px;width:120px"),"#myModal", :data => {:toggle=>"modal"}, :class=>"thumbnail", :title=>music['title']['$t'], :alt=>video_id %></td>
 					<td style="max-width:200px;"><%= music['title']['$t'] %></td>
 					<td><%= music['category'][1]['label'] %></td>
 					<% duration = music['media$group']['media$content'][0]['duration'] %>
@@ -67,4 +67,43 @@
 		</div>
 		<% end %>
 	</div>
+
+	<!-- Modal -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="border:none">
+	  <div class="modal-header">
+	    <button id="modal-closed" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">Modal header</h3>
+	  </div>
+	  <div id="myModalBody">
+	    <p>One fine body…</p>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">닫기</button>
+	  </div>
+	</div>
 </div>
+<script>
+	$("a[data-toggle=modal]").click(function(ev) {
+	    ev.preventDefault();
+	
+			$('body').on('hidden', '.modal', function () {
+			  $(this).removeData('modal');
+			});
+			
+	    var title = $(this).attr("title");
+			var youtubeID = $(this).attr("alt");
+			
+	    // load the url and show modal on success
+			document.getElementById("myModalLabel").innerHTML = title;
+			document.getElementById("myModalBody").innerHTML = 
+			"<iframe style='width:560px;height:315px' src='https://www.youtube.com/embed/"+youtubeID+"?frameborder='0'></iframe>";
+	    $('#myModal .modal-body').load(title, function() {
+				$("#myModal").modal("show"); 
+			})
+
+	});
+
+	$('#myModal').on('hide', function () {
+		$('#myModalBody').html('');
+	});	
+</script>
