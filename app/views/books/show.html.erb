@@ -30,26 +30,29 @@
 			</div>
 		</div>
 		<div class="span11" style="text-align:right">
-			<%= link_to 'Edit', edit_book_path(@book) %> |
-			<%= link_to 'Back', books_path %>
+			<%= link_to '책 정보 편집', edit_book_path(@book), :class => 'btn btn-info' %>
 		</div>
 		<div class="span11" style="padding-left:1.4em;padding-top:1.4em;">
 			<span class="label label-info" style="font-size:1.0em">총 <%= @related_entities.count %>개의 관련 음악: </span><br/><br />
+			<% if @related_entities.count != 0 then %>
 			<div class="well-relation" style="padding-bottom:0px">
 				<table class="table table-hover table-valign">
 				  <tr>
 				    <th></th>
 				    <th><b>제목</b></th>
-						<th><b>재생시간</b></th>
-				    <th><b>부연설명</b></th>
+						<th><b>부연설명</b></th>
+				    <th></th>
 				    <!--th></th-->
 				  </tr>
 					<% @related_entities.each do |music| %>
 					<tr>
 						<td style="width:250px"><%= "<iframe style='width:250px;height:200px' src='https://www.youtube.com/embed/#{music[1].video_id}?frameborder='0'></iframe>".html_safe %></td>
-						<td style="width:200px;"><%= music[1].title %></td>
-						<td style="width:70px;text-align:center"><%= music[1].duration.strftime("%M:%S") %></td>
+						<td style="width:200px;"><%= music[1].title %><br>(<%= music[1].duration.strftime("%M:%S") %>)</td>
 						<td><%= music[0] %></td>
+						<td style="width:70px;text-align:center">
+							<%= link_to '편집', edit_music_path(music[1]), :class => "btn btn-info btn-small" %><br><br>
+							<%= link_to '삭제', music[1], confirm: '정말 삭제하시겠습니까?', method: :delete, :class => "btn btn-danger btn-small" %>
+						</td>
 						<!--td style="width:50px"><%= link_to "유튜브에서 보기", 'https://www.youtube.com/watch?v='+music[1].video_id, :class => "btn btn-info"%></td-->
 					</tr>
 					<% end %>
@@ -59,11 +62,24 @@
 				<%= form_tag(new_relation_path, :method => 'GET') do %>
 					<%= hidden_field_tag :book_id, @book.id %>
 					<% params[:notice] = @book.id %>
-					<%= submit_tag "새 관련음악 추가",  :class => 'btn btn-success'  %>
+					<%= submit_tag "+ 새 관련음악 추가",  :class => 'btn btn-success'  %>
 				<% end %>
 					</div>
 				</div>
 			</div>
+			<% else %>
+			<div class="well-relation" style="padding-bottom:0px">
+				<div class="row">
+					<div class="span10" style="text-align:right">
+				<%= form_tag(new_relation_path, :method => 'GET') do %>
+					<%= hidden_field_tag :book_id, @book.id %>
+					<% params[:notice] = @book.id %>
+					<%= submit_tag "+ 새 관련음악 추가",  :class => 'btn btn-success'  %>
+				<% end %>
+					</div>
+				</div>
+			</div>
+			<% end %>
 		</div>
 	</div>
 </div>

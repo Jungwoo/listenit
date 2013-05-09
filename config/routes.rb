@@ -13,6 +13,7 @@ Bookmap::Application.routes.draw do
   
   match 'book_search' => 'books#search'
   match 'music_search' => 'relations#search'
+  match 'edit_music' => 'musics#edit'
   
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
   

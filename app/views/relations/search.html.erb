@@ -13,6 +13,7 @@
 		<div class="span12">
 			<h3><%= image_tag 'search_result.svg'%>2단계: 검색 결과에서 음악 선택하기</h3><br/>
 		</div>
+		<% if @search_result['feed']['entry'] != nil then %>
 		<div class="span12">
 			<table class="table table-hover table-valign">
 			  <tr>
@@ -47,17 +48,23 @@
 				<% current_index = @search_result['feed']['openSearch$startIndex']['$t']%>
 				<% itemsPerPage = @search_result['feed']['openSearch$itemsPerPage']['$t']%>
 				<% if current_index <= 1 then %>
-				<li class="disabled"><%= link_to "이전", music_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :start_index => current_index-itemsPerPage ) %></li>
+				<li class="disabled"><%= link_to "이전" %></li>
 				<% else %>
 				<li><%= link_to "이전", music_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :start_index => current_index-itemsPerPage ) %></li>
 				<% end %>
 				<% if totalResults - current_index < itemsPerPage then %>
-				<li class="disabled"><%= link_to "다음", music_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :start_index => current_index+itemsPerPage ) %></li>
+				<li class="disabled"><%= link_to "다음" %></li>
 				<% else %>
 				<li><%= link_to "다음", music_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :start_index => current_index+itemsPerPage ) %></li>
 				<% end %>
 		  </ul>
 			<%= link_to '이전화면으로 돌아가기', :back, :class=>"btn" %>
 		</div>
+		<% else %>
+		<div class="span12">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;검색 결과가 없습니다.</br></br>
+			&nbsp;&nbsp;&nbsp;<%= link_to '이전화면으로 돌아가기', :back, :class=>"btn" %>
+		</div>
+		<% end %>
 	</div>
 </div>
