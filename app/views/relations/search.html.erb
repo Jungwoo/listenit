@@ -13,7 +13,7 @@
 		<div class="span12">
 			<h3><%= image_tag 'search_result.svg'%>2단계: 검색 결과에서 음악 선택하기</h3><br/>
 		</div>
-		<% if @search_result['feed']['entry'] != nil then %>
+		<% if @search_result['feed']['openSearch:totalResults'] != "0" then %>
 		<div class="span12">
 			<table class="table table-hover table-valign">
 			  <tr>
@@ -34,11 +34,24 @@
 					<td style="width:140px"><%= link_to image_tag( "http://img.youtube.com/vi/#{video_id}/1.jpg", style: "height:90px;width:120px"),"#myModal", :data => {:toggle=>"modal"}, :class=>"thumbnail", :title=>music['title']['$t'], :alt=>video_id %></td>
 					<td style="max-width:200px;"><%= music['title']['$t'] %></td>
 					<td><%= music['category'][1]['label'] %></td>
-					<% duration = music['media$group']['media$content'][0]['duration'] %>
-					<td><%= (duration / 60).to_s %>분&nbsp;<%= (duration % 60).to_s %>초</td>
-					<% target_music['duration'] = duration %>
+					<% if music['media$group']['media$content'] != nil then %>
+					<% 	duration = music['media$group']['media$content'][0]['duration']%>
+					<% else %>
+					<% 	duration = 0 %>
+					<% end %>
+					<td>
+						<% if duration != 0 then %>
+							<%= (duration / 60).to_s %>분&nbsp;<%= (duration % 60).to_s %>초</td>
+							<% target_music['duration'] = duration %>
+						<% else %>
+							<span class="label label-important">사용불가</span>
+						<% end %>
 			    <td>
+						<% if duration != 0 then %>
 							<%= link_to '선택', new_relation_path(:target => target_music, :book_id => @book_id), :class=>"btn btn-primary" %>
+						<% else %>
+							<span class="label label-important">사용불가</span>
+						<% end %>
 					</td>
 			  </tr>
 			<% end %>
