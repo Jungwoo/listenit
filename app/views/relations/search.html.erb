@@ -13,7 +13,7 @@
 		<div class="span12">
 			<h3><%= image_tag 'search_result.svg'%>2단계: 검색 결과에서 음악 선택하기</h3><br/>
 		</div>
-		<% if @search_result['feed']['openSearch:totalResults'] != "0" then %>
+		<% if @search_result['feed']['openSearch$totalResults']['$t'] != 0 then %>
 		<div class="span12">
 			<table class="table table-hover table-valign">
 			  <tr>
@@ -76,7 +76,7 @@
 		<% else %>
 		<div class="span12">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;검색 결과가 없습니다.</br></br>
-			&nbsp;&nbsp;&nbsp;<%= link_to '이전화면으로 돌아가기', :back, :class=>"btn" %>
+			&nbsp;&nbsp;&nbsp;<%= link_to '다시 검색하기', :back, :class=>"btn" %>
 		</div>
 		<% end %>
 	</div>
