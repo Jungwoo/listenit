@@ -15,7 +15,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-	      <a class="brand" href="/"><%= image_tag 'headphone.svg', style: "height: 25px;" %>&nbsp;&nbsp;<b>Soundful</b></a>
+				<div class="nav" style="height:40px;margin-right:0px;">
+					<%= image_tag 'headphone.svg', style: "height:24px;margin-top:8px;" %>&nbsp;&nbsp;
+				</div>
+	      <a class="brand" href="/" style="margin-top:1px"><b>Soundful</b></a>
 	      <div class="nav-collapse">
 	        <ul class="nav">
            	<li class="dropdown active">
@@ -34,7 +37,7 @@
            	</li>
          	</ul>
          	<form class="navbar-search pull-left" action="">
-           	<input type="text" class="search-query span2" placeholder="책 이름 검색">
+           	<input type="text" class="search-query span3" placeholder="책 제목 또는 저자명 검색">
          	</form>
          	<ul class="nav pull-right">
 						<% if user_signed_in? %>
