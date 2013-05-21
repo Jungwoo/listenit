@@ -38,7 +38,7 @@
 				<div class="well" style="margin-left:30px">
 				<%= form_tag(books_path, :method => 'POST') do %>
 					<div>
-							<div style="float:left;margin-right:20px"><%= image_tag @target['cover_s_url'] %></div>
+							<div style="float:left;margin-right:20px"><%= safe_image_tag( @target['cover_s_url'], "small") %></div>
 							<div style="padding-left:10px">
 								<b><%= strip_bold_tags @target['title'] %></b><br>
 								<%= strip_bold_tags @target['author'] %> 지음 / <%= strip_bold_tags @target['pub_nm'] %>

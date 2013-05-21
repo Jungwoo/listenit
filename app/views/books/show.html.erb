@@ -11,7 +11,7 @@
 	<div class="row">
 		<div class="span12">
 			<div class="span2" style="text-align:center;margin-top:20px;">
-					<%= image_tag @book.cover_l_url.to_s %>
+					<%= safe_image_tag(@book.cover_l_url.to_s, "large") %>
 			</div>
 			<div class="span5">
 				<div class="tab-content">

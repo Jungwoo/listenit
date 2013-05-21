@@ -23,39 +23,44 @@
 			    <th>출판사</th>
 			    <th></th>
 			  </tr>
-
-			<% @search_result['channel']['item'].each do |book| %>
-			  <tr>
-					<td><%= safe_image_tag(book['cover_s_url']) %></td>
-			    <td style="max-width:200px;"><%= strip_bold_tags(book['title']) %></td>
-					<td><%= book['category'] %></td>
-			    <td><%= strip_bold_tags(book['author']) %></td>
-			    <td><%= book['pub_nm'] %></td>
-			    <td>
-						<% if @class.eql?('book') then %>
-							<%= link_to '선택', new_book_path(:target => book, :book_id => @book_id), :class=>"btn btn-primary" %>
-						<% else %>
-							<%= link_to '선택', new_relation_path(:target => book, :book_id => @book_id), :class=>"btn btn-primary" %>
-						<% end %>
-					</td>
-			  </tr>
+			<% if @search_result['channel']['totalCount'] != "0" then %>
+			
+				<% @search_result['channel']['item'].each do |book| %>
+				  <tr>
+						<td><%= safe_image_tag(book['cover_s_url'], "small") %></td>
+				    <td style="max-width:200px;"><%= strip_bold_tags(book['title']) %></td>
+						<td><%= book['category'] %></td>
+				    <td><%= strip_bold_tags(book['author']) %></td>
+				    <td><%= book['pub_nm'] %></td>
+				    <td>
+							<% if @class.eql?('book') then %>
+								<%= link_to '선택', new_book_path(:target => book, :book_id => @book_id), :class=>"btn btn-primary" %>
+							<% else %>
+								<%= link_to '선택', new_relation_path(:target => book, :book_id => @book_id), :class=>"btn btn-primary" %>
+							<% end %>
+						</td>
+				  </tr>
+				<% end %>
+				</table>
+				<ul class="pager">
+					<% totalCount = @search_result['channel']['totalCount']%>
+					<% current_index = @page_no %>
+					<% resultCount = @search_result['channel']['result']%>
+					<% if current_index <= 1 then %>
+					<li class="disabled"><%= link_to "이전", book_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :page_no => current_index-1 ) %></li>
+					<% else %>
+					<li><%= link_to "이전", book_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :page_no => current_index-1 ) %></li>
+					<% end %>
+					<% if Integer(resultCount) < @itemsPerPage then %>
+					<li class="disabled"><%= link_to "다음", book_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :page_no => current_index+1 ) %></li>
+					<% else %>
+					<li><%= link_to "다음", book_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :page_no => current_index+1 ) %></li>
+					<% end %>
+			  </ul>
+			<% else %>
+					<tr><td colspan=6 style="text-align:center">검색결과 없음</td></tr>
+				</table>
 			<% end %>
-			</table>
-			<ul class="pager">
-				<% totalCount = @search_result['channel']['totalCount']%>
-				<% current_index = @page_no %>
-				<% resultCount = @search_result['channel']['result']%>
-				<% if current_index <= 1 then %>
-				<li class="disabled"><%= link_to "이전", book_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :page_no => current_index-1 ) %></li>
-				<% else %>
-				<li><%= link_to "이전", book_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :page_no => current_index-1 ) %></li>
-				<% end %>
-				<% if Integer(resultCount) < @itemsPerPage then %>
-				<li class="disabled"><%= link_to "다음", book_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :page_no => current_index+1 ) %></li>
-				<% else %>
-				<li><%= link_to "다음", book_search_path(:keyword => @keyword, :class => @class, :book_id => @book_id, :page_no => current_index+1 ) %></li>
-				<% end %>
-		  </ul>
 			<%= link_to '이전화면으로 돌아가기', :back, :class=>"btn" %>
 		</div>
 	</div>

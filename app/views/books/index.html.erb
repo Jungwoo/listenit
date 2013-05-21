@@ -16,7 +16,7 @@
 					<% @books.each do |book| %>
 					<li class="span4" style="margin-bottom:1em;float:left;display:block;">
 						<div class="media" style="background-color:#F8F8F8;border:1px solid #EEEEEE; padding: 0.5em;">
-							<%= link_to(image_tag(book.cover_s_url.to_s, :style => "display:inline-block;"), book, :style => "float:left;margin-right:10px;") %>
+							<%= link_to(safe_image_tag(book.cover_s_url.to_s, "small", :style => "display:inline-block;"), book, :style => "float:left;margin-right:10px;") %>
 							<div class="media-body" style='overflow:hidden;zoom:1;display:block'>
 								<h5 class="media-heading" style="font-size:14px;margin:0 0 5px">
 									<%= link_to book.title, book, :style => "color:#0088cc;text-decoration:none" %>
